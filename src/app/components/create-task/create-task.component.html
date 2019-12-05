@@ -1,0 +1,21 @@
+<div class="main-container">
+    <h2 class="center mat-h2"> Let's make a new plan<mat-icon style="display: inline;">emoji_emotions</mat-icon></h2>
+    <form class="container" (ngSubmit)="createTask()" [formGroup]="addTaskForm">
+            <mat-form-field>
+                    <mat-label>Name</mat-label>
+                <input matInput formControlName="name" placeholder="Name*">
+            </mat-form-field>
+            <mat-form-field >
+                    <mat-label>Description</mat-label>
+                <textarea matInput formControlName="description" placeholder="description*"></textarea>
+            </mat-form-field>
+            <mat-form-field>
+                    <mat-label>Status</mat-label>
+                    <select formControlName="completed" matNativeControl required>
+                      <option value="1">Completed</option>
+                      <option value="0">To do</option>
+                    </select>
+            </mat-form-field>
+        <button type="submit" mat-button color="primary">Add task</button>
+    </form>
+</div>

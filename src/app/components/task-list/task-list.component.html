@@ -1,0 +1,42 @@
+<h2>All your tasks are here  
+<div class="btn-right">
+<button  mat-raised-button  
+         color="accent" 
+         style="float:right; margin:1em;"
+         routerLink="/create-task">
+   <mat-icon>create</mat-icon> 
+   Add a new task
+</button>
+</div>
+<br>
+<div class="conatiner">
+<div class="example-container">
+  <h2 class="mat-h2">To do</h2>
+
+  <div
+    cdkDropList
+    #todoList="cdkDropList"
+    [cdkDropListData]="tasks"
+    [cdkDropListConnectedTo]="[doneList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let task of tasks" cdkDrag>
+     <span class="pointer"  [routerLink]="['/tasks/', task.id ]" routerLinkActive="router-link-active" > {{task.name}}</span>
+    </div>
+  </div>
+</div>
+
+<div class="example-container">
+  <h2 class="mat-h2 text-center">Done</h2>
+
+  <div
+    cdkDropList
+    #doneList="cdkDropList"
+    [cdkDropListData]="done"
+    [cdkDropListConnectedTo]="[todoList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let task of done" cdkDrag>{{task.name}}</div>
+  </div>
+</div>
+</div>
