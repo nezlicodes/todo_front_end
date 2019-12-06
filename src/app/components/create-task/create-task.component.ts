@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class CreateTaskComponent implements OnInit {
   public addTaskForm: FormGroup;
+  public loading= false;
   constructor(private fb: FormBuilder, private taskService:TasksService, private router: Router) { }
 
   ngOnInit() {
@@ -21,6 +22,11 @@ export class CreateTaskComponent implements OnInit {
   }
 
   createTask() {
-    this.taskService.createTask(this.addTaskForm.value).subscribe(res => this.router.navigateByUrl('/tasks'), err=> err)
+    this.loading = true;
+    this.taskService.createTask(this.addTaskForm.value)
+    .subscribe(res => {this.loading = false;
+      this.router.navigateByUrl('/tasks')
+    }, err=> {this.loading = false;
+      err})
   }
 }

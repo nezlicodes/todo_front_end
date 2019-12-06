@@ -17,11 +17,11 @@
     <mat-icon href="#"  style="padding-right: 1em ;" (click)="sidenav.toggle()">menu</mat-icon>
   </div>
   </div>
-    <span  routerLink="/" style="cursor: pointer;">Task Manager</span>
+    <span  routerLink="/" routerLinkActive="active" style="cursor: pointer;">Task Manager</span>
     <span class="example-spacer"></span>
     <div fxShow="true" fxHide.lt-md="true">
-      <button routerLink="/tasks" mat-button>Tasks</button>
-      <button routerLink="/about" mat-button>About</button>
+      <button routerLink="/tasks" routerLinkActive="active" mat-button>Tasks</button>
+      <button routerLink="/about" routerLinkActive="active" mat-button>About</button>
     </div>
 
 
@@ -33,14 +33,14 @@
       <div fxLayout="column">
 
         <button (click)="sidenav.toggle()" href="#" mat-button>Close</button>
-        <button routerLink="/tasks" mat-button>Tasks</button>
-        <button routerLink="/about" mat-button>About</button>
+        <button  routerLink="/tasks" routerLinkActive="active"mat-button>Tasks</button>
+        <button routerLink="/about"  routerLinkActive="active"  mat-button>About</button>
 
       </div>
 
     </mat-sidenav>
-
-    <mat-sidenav-content fxFlexFill><router-outlet></router-outlet></mat-sidenav-content>
+   
+    <mat-sidenav-content [@routeAnimations]="prepareRoute(outlet)" fxFlexFill><router-outlet #outlet="outlet"></router-outlet></mat-sidenav-content>
 
 </mat-sidenav-container>
 

@@ -30,4 +30,16 @@ export class TasksService {
       catchError(this.handleError('getSingleTask', []))
     )
   }
+
+  deleteTask(taskId): Observable<any> {
+    return this.http.get(environment.apiUrl + '/delete/' +taskId).pipe(
+      catchError(this.handleError('deleteTask', []))
+    )
+  }
+
+  updateTask(taskId, task): Observable<any> {
+    return this.http.post(environment.apiUrl + '/edit/' + taskId, task).pipe(
+      catchError(this.handleError('updateTask', []))
+    )
+  }
 }

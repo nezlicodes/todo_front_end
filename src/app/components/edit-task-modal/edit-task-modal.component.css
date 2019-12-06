@@ -2,9 +2,5 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    margin:1em;
-}
-
-mat-card{
-    min-width: 18rem
+    flex-direction: column;
 }

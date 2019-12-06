@@ -23,3 +23,11 @@ text-center {
     align-content: flex-end;
     cursor: pointer;
 }
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    margin: 2em;
+}

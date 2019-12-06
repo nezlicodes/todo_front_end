@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Edit task:</h2>
+<mat-dialog-content>
+        <form class="container" [formGroup]="editTaskForm">
+                <mat-form-field>
+                    <input matInput formControlName="name" value='{{data.name}}'>
+                </mat-form-field>
+                <mat-form-field >
+                    <textarea matInput formControlName="description" value='{{ data.description }}'>
+                        
+                    </textarea>
+                </mat-form-field>
+                <mat-form-field>
+                        <select formControlName="completed" value='{{data.completed}}' matNativeControl required>
+                          <option value="1">Completed</option>
+                          <option value="0">To do</option>
+                        </select>
+                </mat-form-field>
+        </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button (click)="updateTask()" [mat-dialog-close]="data">Update</button>
+</mat-dialog-actions>
+
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" ></ngx-loading>

@@ -1,0 +1,13 @@
+mat-card{
+    max-width: 25rem;
+    margin: 2em;
+}
+
+.header-image{
+background-image: url('src\assets\lily.jpg');
+  background-size: cover;
+}
+
+mat-card-header{
+    margin-bottom: 1em;
+}

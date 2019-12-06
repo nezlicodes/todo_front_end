@@ -63,3 +63,7 @@
   .pointer {
       cursor: pointer;
   }
+
+  .todo{
+    color:green
+  }
