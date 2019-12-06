@@ -11,7 +11,7 @@ import { ActivatedRoute, Router, NavigationError, NavigationCancel, NavigationEn
   ]
 })
 export class AppComponent {
-  title = 'front-end';
+  title = 'Task manager';
   public loading:boolean;
   constructor(private router: Router, private navInterceptor: RoutingInterceptorService) {
    
